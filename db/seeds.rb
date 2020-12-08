@@ -1,24 +1,17 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
-
-post = Post.new(title: "Shovel Knight", content: "Shovel Knight is hard")
-post.save
-post = Post.new(title: "Lethal League", content: "Super Intense")
-post.save
-user = User.new(name: "Oscar", email: "o@example.com")
-user.save
-user = User.new(name: "Ryker", email: "r@example.com")
-user.save
-comment = Comment.new(content: "Agreed", post_id: "1")
-comment.save
-comment = Comment.new(content: "I think we both just suck", post_id: "2")
-comment.save
-comment = Comment.new(content: "I love that game", post_id: "3")
-comment.save
-comment = Comment.new(content: "Oh my gosh I love that game too", post_id: "3")
-comment.save
+Comment.create!([
+  {content: "Agreed", user_id: nil, post_id: 1},
+  {content: "I think we both just suck", user_id: nil, post_id: 2},
+  {content: "I love that game", user_id: nil, post_id: 3},
+  {content: "Oh my gosh I love that game too", user_id: nil, post_id: 3}
+])
+Post.create!([
+  {title: "Speedrunners", content: "Speedrunners is the best", user_id: 1},
+  {title: "Shovel Knight", content: "Shovel Knight is hard", user_id: 1},
+  {title: "Lethal League", content: "Super Intense", user_id: 1},
+  {title: "Rawmen", content: "This game is fantastic I can't wait till it comes out", user_id: 1}
+])
+User.create!([
+  {name: "Arthur", email: "arthur@example.com", password_digest: "$2a$12$hlF/qopEpG78r9QsUMTU.u0QN3wBzk9mGNPjsWMaWtavZnmzfPYsy", admin: true},
+  {name: "Oscar", email: "o@example.com", password_digest: "$2a$12$MpbMHSq5H4Ylaw/RNOr.YuLdT7dgEuLGJ.kRVi7Ldzu0GsoQj4iIW", admin: false},
+  {name: "Ryker", email: "r@example.com", password_digest: "$2a$12$vBwY3eMugnIiFMFtagjWmelc1LTut0.VU8EmsG4FOrfZ01nQFCPiK", admin: false}
+])
