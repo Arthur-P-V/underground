@@ -1,0 +1,5 @@
+{
+  id: user.id,
+  username: user.name,
+  posts: user.posts,
+}
