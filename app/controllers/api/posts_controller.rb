@@ -1,4 +1,6 @@
 class Api::PostsController < ApplicationController
+  before_action :authenticate_user, except: [:index, :show]
+
   def index
     @posts = Post.all
     render "index.json.jb"
@@ -11,6 +13,7 @@ class Api::PostsController < ApplicationController
 
   def create
     @post = Post.new(
+      user_id: current_user.id,
       title: params[:title],
       content: params[:content],
     )
@@ -25,8 +28,12 @@ class Api::PostsController < ApplicationController
   end
 
   def destroy
-    @post = Post.find(params[:id])
-    @post.destroy
-    render json: { message: "Post successfully deleted" }
+    if current_user.admin == true
+      @post = Post.find(params[:id])
+      @post.destroy
+      render json: { message: "Post successfully deleted" }
+    else
+      render json: { message: "You must be an admin to delete posts" }, status: :unauthorized
+    end
   end
 end
