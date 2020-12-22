@@ -17,8 +17,4 @@ class Api::UsersController < ApplicationController
       render json: { errors: user.errors.full_messages }, status: :bad_request
     end
   end
-
-  def new
-    #make when you need for the front end
-  end
 end

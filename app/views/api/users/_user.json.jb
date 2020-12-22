@@ -1,5 +1,7 @@
 {
   id: user.id,
   username: user.name,
+  total_posts: user.post_count,
+  total_comments: user.comment_count,
   posts: user.posts,
 }

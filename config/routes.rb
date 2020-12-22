@@ -6,11 +6,18 @@ Rails.application.routes.draw do
   namespace :api do
     get "/posts" => "posts#index"
     get "/posts/:id" => "posts#show"
-    get "/posts/new" => "posts#new"
     post "/posts" => "posts#create"
     delete "/posts/:id" => "posts#destroy"
 
-    get "/users/new" => "users#new"
+    get "/comments/:id" => "comments#index"
+    post "/comments" => "comments#create"
+    delete "/comments/:id" => "comments#destroy"
+
+    get "/votes" => "votes#index"
+    get "/votes/:id" => "votes#show"
+    post "/votes" => "votes#create"
+    delete "/votes/:id" => "votes#destroy"
+
     get "/users/:id" => "users#show"
     post "/users" => "users#create"
 

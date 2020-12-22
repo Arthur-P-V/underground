@@ -2,7 +2,7 @@ class Api::PostsController < ApplicationController
   before_action :authenticate_user, except: [:index, :show]
 
   def index
-    @posts = Post.all
+    @posts = Post.all.order(id: :desc).sort_by { |post| post.score }.reverse
     render "index.json.jb"
   end
 
