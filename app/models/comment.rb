@@ -5,6 +5,7 @@ class Comment < ApplicationRecord
   validates :content, presence: true
   validates :post_id, presence: true
   validates :user_id, presence: true
+  validates :user_id, uniqueness: { scope: :comment_id }
 
   def is_liked?(user)
     if user
