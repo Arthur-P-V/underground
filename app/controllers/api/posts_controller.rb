@@ -16,6 +16,7 @@ class Api::PostsController < ApplicationController
       user_id: current_user.id,
       title: params[:title],
       content: params[:content],
+      category_id: params[:category_id],
     )
     @post.save
     if @post.save

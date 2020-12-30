@@ -17,4 +17,20 @@ class Api::UsersController < ApplicationController
       render json: { errors: user.errors.full_messages }, status: :bad_request
     end
   end
+
+  def update
+    @user = User.find(params[:id])
+    if @user == current_user
+      @user.name = params[:name] || @user.name
+      @user.email = params[:email] || @user.email
+      @user.profile_pic = params[:profile_pic] || @user.profile_pic
+      if @user.save
+        render "show.json.jb"
+      else
+        render json: { errors: @user.errors.full_messages }, status: :unprocessable_entity
+      end
+    else
+      render json: { message: "unauthorized" }, status: :unauthorized
+    end
+  end
 end

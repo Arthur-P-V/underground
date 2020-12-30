@@ -7,4 +7,5 @@
   date: post.created_at,
   liked: post.is_liked?(current_user),
   vote_id: post.vote_id(current_user),
+  category: post.category.name,
 }

@@ -1,7 +1,9 @@
 {
   id: user.id,
   username: user.name,
+  profile_pic: user.profile_pic,
   total_posts: user.post_count,
   total_comments: user.comment_count,
   posts: user.posts,
+  admin: user.admin,
 }
