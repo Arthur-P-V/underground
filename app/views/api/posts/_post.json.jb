@@ -3,6 +3,7 @@
   user: post.user,
   title: post.title,
   content: post.content,
+  image_url: post.image_url,
   score: post.score,
   date: post.created_at,
   liked: post.is_liked?(current_user),
