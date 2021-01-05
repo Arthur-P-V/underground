@@ -4,6 +4,11 @@
   profile_pic: user.profile_pic,
   total_posts: user.post_count,
   total_comments: user.comment_count,
+  bio: user.bio,
+  fav_game: user.fav_game,
+  fav_movie: user.fav_movie,
+  fav_band: user.fav_band,
+  banner: user.banner,
   posts: user.posts,
   admin: user.admin,
 }

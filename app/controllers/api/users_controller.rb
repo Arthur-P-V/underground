@@ -24,6 +24,11 @@ class Api::UsersController < ApplicationController
       @user.name = params[:name] || @user.name
       @user.email = params[:email] || @user.email
       @user.profile_pic = params[:profile_pic] || @user.profile_pic
+      @user.bio = params[:bio] || @user.bio
+      @user.fav_game = params[:fav_game] || @user.fav_game
+      @user.fav_movie = params[:fav_movie] || @user.fav_movie
+      @user.fav_band = params[:fav_band] || @user.fav_band
+      @user.banner = params[:banner] || @user.banner
       if @user.save
         render "show.json.jb"
       else

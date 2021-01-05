@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_30_193714) do
+ActiveRecord::Schema.define(version: 2021_01_04_213730) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,6 +48,11 @@ ActiveRecord::Schema.define(version: 2020_12_30_193714) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "profile_pic", default: "https://t4.ftcdn.net/jpg/00/64/67/63/360_F_64676383_LdbmhiNM6Ypzb3FM4PPuFP9rHe7ri8Ju.jpg"
+    t.string "fav_movie"
+    t.string "fav_game"
+    t.string "fav_band"
+    t.string "bio", limit: 500
+    t.string "banner", default: "https://images.unsplash.com/photo-1600697230088-4992c83b2804?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80"
   end
 
   create_table "votes", force: :cascade do |t|
