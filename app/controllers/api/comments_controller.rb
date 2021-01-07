@@ -13,7 +13,6 @@ class Api::CommentsController < ApplicationController
       post_id: params[:post_id],
       content: params[:content],
     )
-    @comment.save
     if @comment.save
       render "show.json.jb"
     else

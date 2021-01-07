@@ -1,9 +1,6 @@
 {
   id: comment.id,
   post: comment.post_id,
-  user: comment.user.name,
+  user: comment.user,
   comment: comment.content,
-  score: comment.score,
-  liked: comment.is_liked?(current_user),
-  vote_id: comment.vote_id(current_user),
 }
